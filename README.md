@@ -3,6 +3,10 @@ This is an OpenCore EFI configuration made by me for the Lifebook S752 series.
 
 ![Picture of my Lifebook running macOS Big Sur 11.7.10](https://files.randomtek.lol/pictures/BigSur-S752-min.png)
 
+> [!WARNING]
+> This config uses the MacBookPro11,1 SMBIOS, which may cause issues with the graphics and power management as the chipset is Ivy Bridge and this is using a Haswell model.\
+> If you want a more compatible and stable config, you're limited to installing [Catalina](https://github.com/rndmtk/OpenCore_Fujitsu_Lifebook-S752/tree/catalina).
+
 ## Config Status 
 What's working:
 - Battery

@@ -8,34 +8,45 @@ This is an OpenCore EFI configuration made by me for the Lifebook S752 series.
 > If you want a more compatible and stable config, you're limited to installing [Catalina](https://github.com/rndmtk/OpenCore_Fujitsu_Lifebook-S752/tree/catalina).
 
 ## Config Status 
-What's working:
-- Battery
-- Audio and 3.5mm ports
-- Graphics (Intel HD 4000)
-- DVD-RW drive
-- SDXC Reader
-- Ethernet
-- Wi-Fi (Atheros AR5B93)
-- USB ports (including the ones on the docking station)
-- Sleep
-- Keyboard, trackpad and trackpoint
-- Some Continuity features
 
-What's not working:
-- Cellular modem (no kext available for the MC8305)
-- BlueTooth (there's no hardware for it obviously, either use a wireless combo card or a USB dongle to make it work)
-- Extra Battery Info (cycle count is always on 0)
-- VGA output (WhateverGreen doesn't support it)
-- Middle trackpad buttons (breaks left/right clicking, reboot or sleep&wake to temporarily fix)
-- FairPlay 1.x (iTunes Trailers tested, unsure about others) (audio works, but it's just a green screen)
-- AirDrop (a wireless combo card is required, USB dongles won't fix it)
-- The 5 buttons on top
+- ✅ - Working
+- ⚠️ - Working to an extent
+- ❌ - Not working
+- ❔ - Untested
 
-Untested:
-- SmartCard
-- ExpressCard
-- DisplayPort
-- Modular bay battery (will most likely not work. If you have one, remove it for now)
+### Hardware
+| Hardware    | Status | Note |
+| :---------  | :----: | :--- |
+| Wi-Fi         | ✅ | Using the Qualcomm Atheros AR5B93
+| Ethernet      | ✅ |
+| BlueTooth      | ❌ | There's simply no hardware for it. Use a wireless combo card or a USB dongle
+| Cellular       | ❌ | No kext available for the MC8305
+| Graphics        | ⚠️ | The inaccurate SMBIOS might create some issues
+| Audio           | ✅ | 3.5mm jacks working too
+| Battery          | ✅ | No supplemental information however
+| Keyboard         | ⚠️ | Has a chance of not working after waking from sleep
+| Trackpad         | ⚠️ | The middle buttons temporarily break left/right clicking. Sleep&Wake or Reboot to revert
+| Tracknub         | ✅ |
+| USB ports         | ✅ | Docking station is mapped too
+| VGA               | ❌ | Not supported on iGPU
+| DisplayPort        | ❔ |
+| SDXC slot          | ✅ |
+| SmartCard          | ❔ | Native driver does load but not tested yet
+| ExpressCard         | ❔ |
+| Modular DVD Writer  | ⚠️ | Physical eject button won't work while disc is still inside. You must eject from Finder
+| Modular Blu-ray     | ❔ |
+| Modular Sec Battery | ❌ | Haven't tested as I don't have one, but I'm sure it will not work
+| Extra buttons       | ❌ |
+
+### Features
+| Features  | Status | Note |
+| :-------- | :----: | :--- |
+| Sleep       | ⚠️ | The inaccurate SMBIOS might create some issues
+| AirDrop     | ❌ | Must use a supported Broadcom combo card
+| AirPlay     | ❔ |
+| iServices   | ⚠️ | FaceTime may crash when receiving a call
+| Find My Mac | ✅ |
+| DRM         | ❌ | FairPlay media will only be a green screen
 
 ## Preparation
 > [!IMPORTANT]
@@ -143,6 +154,4 @@ Although there's one problem: Your flash drive has to be plugged in all the time
 7. After you're done shut down your laptop, unplug the flash drive, power it on and now you should be able to boot macOS without it.
 
 ## Ending
-Well, you might as well go ahead and enjoy your new hackintosh now. :3
-
-If you have any problems or need help, you can make an issue in this repository.
+Well, good luck enjoying your new hackintosh now, considering the unstable SMBIOS...
